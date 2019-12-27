@@ -8,7 +8,7 @@ For the Arduino C programs we use the folder [arduino](./arduino).
 
 ## MicroPython
 
-Our first steps in MicroPython are documented in the [micropython}(./micropython) folder.
+Our first steps in MicroPython are documented in the [micropython](./micropython) folder.
 
 
 [![MIT license](https://img.shields.io/github/license/kreier/asa2?color=brightgreen)](http://opensource.org/licenses/MIT)
