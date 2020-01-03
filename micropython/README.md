@@ -10,7 +10,7 @@ Instructions are found at [micropython.org](https://docs.micropython.org/en/late
 esptool.py --port COM5 --baud 460800 write_flash --flash_size=detect 0 esp8266-20200103-v1.12.bin
 ```
 
-Now you can connect to your esp8266 using uPyCraft or Thonny. For the first one you might want to install [SourceCodePro.ttf](https://github.com/kreier/python2018/raw/master/micropython/SourceCodePro.ttf) for all users to avoid the error message.
+Now you can connect to your esp8266 using [uPyCraft](http://docs.dfrobot.com/upycraft/) or [Thonny](https://thonny.org/). For the first one you might want to install [SourceCodePro.ttf](https://github.com/kreier/python2018/raw/master/micropython/SourceCodePro.ttf) for all users to avoid the error message.
 
 ## Scan for I2C devices
 
