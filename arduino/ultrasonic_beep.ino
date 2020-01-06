@@ -21,6 +21,7 @@
 // Pins
 const int TRIG_PIN = 7;
 const int ECHO_PIN = 8;
+const int BUZZER   = 4;
 
 // Anything over 400 cm (23200 us pulse) is "out of range"
 const unsigned int MAX_DIST = 23200;
@@ -30,6 +31,7 @@ void setup() {
   // The Trigger pin will tell the sensor to range find
   pinMode(TRIG_PIN, OUTPUT);
   digitalWrite(TRIG_PIN, LOW);
+   pinMode(BUZZER, OUTPUT);
 
   //Set Echo pin as input to measure the duration of 
   //pulses coming back from the distance sensor
@@ -77,6 +79,11 @@ void loop() {
     Serial.print(inches);
     Serial.println(" in");
   }
+   if ( cm < 20 ) {
+      digitalWrite( BUZZER, HIGH );
+      delay(30);
+      digitalWrite( BUZZER, LOW );
+   }
 
   // Wait at least 60ms before next measurement
   delay(60);
