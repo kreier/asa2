@@ -1,31 +1,98 @@
-/* Sweep
- by BARRAGAN <http://barraganstudio.com>
- This example code is in the public domain.
-
- modified 8 Nov 2013
- by Scott Fitzgerald
- http://www.arduino.cc/en/Tutorial/Sweep
+/**
+   HC-SR04 Demo
+   Demonstration of the HC-SR04 Ultrasonic Sensor
+   Date: August 3, 2016
+   Description:
+    Connect the ultrasonic sensor to the Arduino as per the
+    hardware connections below. Run the sketch and open a serial
+    monitor. The distance read from the sensor will be displayed
+    in centimeters and inches.
+   Hardware Connections:
+    Arduino | HC-SR04
+    -------------------
+      5V    |   VCC
+      7     |   Trig
+      8     |   Echo
+      GND   |   GND
+   License:
+    Public Domain
 */
 
-#include <Servo.h>
+// Pins
+const int TRIG_PIN = 7;
+const int ECHO_PIN = 8;
+const int BUZZER   = 4;
 
-Servo myservo;  // create servo object to control a servo
-// twelve servo objects can be created on most boards
-
-int pos = 0;    // variable to store the servo position
-
+// Anything over 400 cm (23200 us pulse) is "out of range"
+const unsigned int MAX_DIST = 23200;
+    
 void setup() {
-  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+
+  // The Trigger pin will tell the sensor to range find
+  pinMode(TRIG_PIN, OUTPUT);
+  digitalWrite(TRIG_PIN, LOW);
+   pinMode(BUZZER, OUTPUT);
+
+  //Set Echo pin as input to measure the duration of 
+  //pulses coming back from the distance sensor
+  pinMode(ECHO_PIN, INPUT);
+
+  // We'll use the serial monitor to view the sensor output
+  Serial.begin(9600);
 }
 
 void loop() {
-  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
-    // in steps of 1 degree
-    myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(5);                       // waits 15ms for the servo to reach the position
+
+  unsigned long t1;
+  unsigned long t2;
+  unsigned long pulse_width;
+  float cm;
+  float inches;
+
+  // Hold the trigger pin high for at least 10 us
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+
+  // Wait for pulse on echo pin
+  while ( digitalRead(ECHO_PIN) == 0 );
+
+  // Measure how long the echo pin was held high (pulse width)
+  // Note: the micros() counter will overflow after ~70 min
+  t1 = micros();
+  while ( digitalRead(ECHO_PIN) == 1);
+  t2 = micros();
+  pulse_width = t2 - t1;
+
+  // Calculate distance in centimeters and inches. The constants
+  // are found in the datasheet, and calculated from the assumed speed
+  //of sound in air at sea level (~340 m/s).
+  cm = pulse_width / 58.0;
+  inches = pulse_width / 148.0;
+
+  // Print out results
+  if ( pulse_width > MAX_DIST ) {
+    Serial.println("Out of range");
+  } else {
+    Serial.print(cm);
+    Serial.print(" cm \t");
+    Serial.print(inches);
+    Serial.println(" in");
   }
-  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
-    myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(5);                       // waits 15ms for the servo to reach the position
-  }
+   if ( cm < 10 ) {
+      digitalWrite( BUZZER, HIGH );
+      delay(30);
+      digitalWrite( BUZZER, LOW );
+   }
+
+   if ( cm > 10 ) {
+    // do nothing
+    //  digitalWrite( BUZZER, HIGH );
+    //  delay(50);
+    //  digitalWrite( BUZZER, LOW );
+    //  delay(1000);
+   }
+
+  // Wait at least 60ms before next measurement
+  delay(60);
 }
