@@ -1,6 +1,6 @@
 # ASA session II
 
-From November 11th to February 10th, 2020 we had 9 sessions to create and improve our robot cars. Some work is shared here.
+From November 11th, 2019 to February 10th, 2020 we had 9 sessions to create and improve our robot cars. Some work is shared here.
 
 ## Arduino
 
@@ -17,6 +17,20 @@ For the Arduino C programs we use the folder [arduino](./arduino). For example:
 
 Our first steps in MicroPython are documented in the [micropython](./micropython) folder.
 
+
+
+
+## Schedule
+
+- 2019-11-11 Start with Chung N, Yau, Sean and Huy
+- 2019-11-18 Huy programs his Alexa clone on [OrangePi Zero](http://www.orangepi.org/orangepizero/)
+- 2019-11-25 Huy wants to investigate Machine learning and object detection. Jetson Nano?
+- 2019-12-02 [hackster.io](https://www.hackster.io/) has a competition to win a free [Jetson Nano](https://www.hackster.io/contests/NVIDIA) with __AI at the Edge__ challenge
+- 2019-12-09 More ultrasonic parts finished, Yau has his robot driving - ready to participate in the [Robot 2019 competition](https://sites.google.com/ais.edu.vn/robot2019)
+- 2020-01-06 Update remote control with bluetooth from the smartphone
+- 2020-01-13 [Chuong N](https://github.com/ChuongN) uploads the first update to [Bluetooth Beep](https://github.com/kreier/asa2/blob/master/arduino/bluetooth_beep.ino)
+- 2020-02-03 School was canceled yesterday because of COVID19
+- 2020-02-10 Closed schools extended by one week
 
 [![MIT license](https://img.shields.io/github/license/kreier/asa2?color=brightgreen)](http://opensource.org/licenses/MIT)
 [![HitCount](http://hits.dwyl.io/kreier/asa2.svg)](http://hits.dwyl.io/kreier/asa2)
