@@ -1,5 +1,8 @@
 # ASA session II
 
+[![MIT license](https://img.shields.io/github/license/kreier/asa2?color=brightgreen)](http://opensource.org/licenses/MIT)
+![GitHub Release](https://img.shields.io/github/v/release/kreier/asa2)
+
 From November 11th, 2019 to February 10th, 2020 we had 9 sessions to create and improve our robot cars. Some work is shared here.
 
 ## Arduino
@@ -11,14 +14,15 @@ For the Arduino C programs we use the folder [arduino](./arduino). For example:
 - [Ultrasonic results on 1602 display](https://github.com/kreier/asa2/blob/master/arduino/ultrasonic_1602_buzzer.ino)
 - [Servo control](https://github.com/kreier/asa2/blob/master/arduino/servo.ino)
 - [Bluetooth connection beep confirmation](https://github.com/kreier/asa2/blob/master/arduino/bluetooth_beep.ino)
-- [T300 software from January 13th, 2020](https://github.com/kreier/asa2/blob/master/arduino/T300_20200113.ino)
+- [T300 software from January 13th, 2020](https://github.com/kreier/asa2/blob/master/arduino/T300_20200113.ino) 🚧🤖🏎️🚚👷⛏️🏗️
 
 ## MicroPython
 
 Our first steps in MicroPython are documented in the [micropython](./micropython) folder.
 
-
-
+```py
+print("Hello World!")
+```
 
 ## Schedule
 
@@ -31,6 +35,3 @@ Our first steps in MicroPython are documented in the [micropython](./micropython
 - 2020-01-13 [Chuong N](https://github.com/ChuongN) uploads the first update to [Bluetooth Beep](https://github.com/kreier/asa2/blob/master/arduino/bluetooth_beep.ino)
 - 2020-02-03 School was canceled yesterday because of COVID19
 - 2020-02-10 Closed schools extended by one week
-
-[![MIT license](https://img.shields.io/github/license/kreier/asa2?color=brightgreen)](http://opensource.org/licenses/MIT)
-[![HitCount](http://hits.dwyl.io/kreier/asa2.svg)](http://hits.dwyl.io/kreier/asa2)
